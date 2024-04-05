@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LotteryAllinone</string>
+    <string name="tv_name">Name</string>
+    <string name="iv_content_description_demo">Demo</string>
+    <string name="btn_txt_pick_3">Pick 3</string>
+    <string name="btn_txt_pick_4">Pick 4</string>
+</resources>

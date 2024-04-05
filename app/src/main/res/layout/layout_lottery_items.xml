@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/iv_"
+                    android:src="@android:drawable/btn_star"
+                    android:contentDescription="@string/iv_content_description_demo"
+                    android:padding="10dp"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_name"
+                    android:text="@string/tv_name"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="15sp"
+                    android:padding="10dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
