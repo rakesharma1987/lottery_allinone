@@ -18,6 +18,10 @@
         <activity
             android:name=".activitys.Pic34HomeActivity"
             android:exported="false" />
+        <activity android:name=".activitys.ThreePredictorActivity"
+            android:exported="false"/>
+        <activity android:name=".activitys.FourpredictorActivity"
+            android:exported="false"/>
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

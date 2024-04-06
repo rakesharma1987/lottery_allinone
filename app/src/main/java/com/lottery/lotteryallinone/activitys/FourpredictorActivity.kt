@@ -1,4 +1,4 @@
-package com.pick3andpick4pred.suvarnatechlabs.activity
+package com.lottery.lotteryallinone.activitys
 
 import android.content.Context
 import android.graphics.drawable.ColorDrawable

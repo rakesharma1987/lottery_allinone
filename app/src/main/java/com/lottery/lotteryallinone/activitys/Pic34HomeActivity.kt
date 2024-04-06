@@ -6,7 +6,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.lottery.lotteryallinone.R
 import com.lottery.lotteryallinone.databinding.ActivityPic34HomeBinding
-import com.pick3andpick4pred.suvarnatechlabs.activity.FourpredictorActivity
 
 class Pic34HomeActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityPic34HomeBinding

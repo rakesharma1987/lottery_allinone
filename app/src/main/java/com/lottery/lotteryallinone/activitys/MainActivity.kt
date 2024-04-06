@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.btn_Pic3_n_pic4 ->{
-
+                startActivity(Intent(this, Pic34HomeActivity::class.java))
             }
 
             R.id.btn_powerball_or_megamillion ->{

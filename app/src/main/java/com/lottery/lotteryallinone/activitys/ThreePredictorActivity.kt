@@ -23,7 +23,7 @@ import com.lottery.lotteryallinone.databinding.ActivityThreePredictorBinding
 import com.lottery.lotteryallinone.db.MyDatabase
 import kotlinx.coroutines.launch
 
-class ThreePredictorActivity : AppCompatActivity() {
+class ThreePredictorActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var context: Context
     private lateinit var binding: ActivityThreePredictorBinding
     private var numberList = arrayOf("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
@@ -184,67 +184,50 @@ class ThreePredictorActivity : AppCompatActivity() {
             }
         }
 
-        binding.btnGen2nos.setOnClickListener(View.OnClickListener {
-            binding.ivAnim.visibility = View.VISIBLE
-            handler.postDelayed({
-                binding.ivAnim.visibility = View.GONE
-                binding.recyclerview3column.visibility = View.VISIBLE
-                var threePredictorAdapter: ThreePredictorAdapter = ThreePredictorAdapter(myDatabase.getTwoRowForThreePredctor())
-                binding.recyclerview3column.adapter = threePredictorAdapter
-            }, 5000)
-            lifecycleScope.launch {
-                binding.recyclerview3column.visibility = View.GONE
-                myDatabase.deleteInsertedDetailsTable()
-                myDatabase.deleteUserSelectionTable()
+        binding.btnGen2nos.setOnClickListener(this)
+        binding.btnGen40nos.setOnClickListener(this)
 
-                myDatabase.insertIntoUserSelection(3, 0, 0)
-                myDatabase.insertDetails(intSpinner1, intSpinner2, intSpinner3, null!!, null!!, null!!, null!!)
-                myDatabase.insertDetails(intSpinner4, intSpinner5, intSpinner6, null!!, null!!, null!!, null!!)
-            }
-        }
-        )
-
-        binding.btnGen40nos.setOnClickListener {
-            generate40sRows()
-            /*if (GooglePlayBillingPreferences.isPurchasedForThreeNo()) {
-                generate40sRows()
-            } else {
-                billingClient.startConnection(object : BillingClientStateListener {
-                    override fun onBillingSetupFinished(billingResult: BillingResult) {
-                        if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
-                            val params = SkuDetailsParams.newBuilder()
-                            params.setSkusList(skulList)
-                                .setType(BillingClient.SkuType.INAPP)
-
-                            billingClient.querySkuDetailsAsync(params.build()) { billingResult, skuDetailList ->
-
-                                for (skuDetail in skuDetailList!!) {
-                                    val flowPurchase = BillingFlowParams.newBuilder()
-                                        .setSkuDetails(skuDetail)
-                                        .build()
-
-                                    val responseCode = billingClient.launchBillingFlow(
-                                        this@ThreePredictorActivity,
-                                        flowPurchase
-                                    ).responseCode
-                                    if (responseCode == 0) {
-                                        GooglePlayBillingPreferences.setPurchasedValueForThreeNo(true)
-                                        binding.btnGen40nos.text = "Generate 40 Lines/Rows"
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    override fun onBillingServiceDisconnected() {
-                        // Try to restart the connection on the next request to
-                        // Google Play by calling the startConnection() method.
-                        GooglePlayBillingPreferences.setPurchasedValueForThreeNo(false)
-                    }
-                })
-            }*/
-
-        }
+//        binding.btnGen40nos.setOnClickListener {
+//            generate40sRows()
+//            if (GooglePlayBillingPreferences.isPurchasedForThreeNo()) {
+//                generate40sRows()
+//            } else {
+//                billingClient.startConnection(object : BillingClientStateListener {
+//                    override fun onBillingSetupFinished(billingResult: BillingResult) {
+//                        if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
+//                            val params = SkuDetailsParams.newBuilder()
+//                            params.setSkusList(skulList)
+//                                .setType(BillingClient.SkuType.INAPP)
+//
+//                            billingClient.querySkuDetailsAsync(params.build()) { billingResult, skuDetailList ->
+//
+//                                for (skuDetail in skuDetailList!!) {
+//                                    val flowPurchase = BillingFlowParams.newBuilder()
+//                                        .setSkuDetails(skuDetail)
+//                                        .build()
+//
+//                                    val responseCode = billingClient.launchBillingFlow(
+//                                        this@ThreePredictorActivity,
+//                                        flowPurchase
+//                                    ).responseCode
+//                                    if (responseCode == 0) {
+//                                        GooglePlayBillingPreferences.setPurchasedValueForThreeNo(true)
+//                                        binding.btnGen40nos.text = "Generate 40 Lines/Rows"
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//
+//                    override fun onBillingServiceDisconnected() {
+//                        // Try to restart the connection on the next request to
+//                        // Google Play by calling the startConnection() method.
+//                        GooglePlayBillingPreferences.setPurchasedValueForThreeNo(false)
+//                    }
+//                })
+//            }
+//
+//        }
 
     }
 
@@ -282,6 +265,33 @@ class ThreePredictorActivity : AppCompatActivity() {
 //            GooglePlayBillingPreferences.setPurchasedValueForThreeNo(true)
             Toast.makeText(applicationContext, "Item Purchased", Toast.LENGTH_SHORT).show()
             recreate()
+        }
+    }
+
+    override fun onClick(view: View?) {
+        when(view?.id){
+            R.id.btn_gen_2nos ->{
+                binding.ivAnim.visibility = View.VISIBLE
+                handler.postDelayed({
+                    binding.ivAnim.visibility = View.GONE
+                    binding.recyclerview3column.visibility = View.VISIBLE
+                    val threePredictorAdapter = ThreePredictorAdapter(myDatabase.getTwoRowForThreePredctor())
+                    binding.recyclerview3column.adapter = threePredictorAdapter
+                }, 5000)
+                lifecycleScope.launch {
+                    binding.recyclerview3column.visibility = View.GONE
+                    myDatabase.deleteInsertedDetailsTable()
+                    myDatabase.deleteUserSelectionTable()
+
+                    myDatabase.insertIntoUserSelection(3, 1, 1)
+                    myDatabase.insertDetails(intSpinner1, intSpinner2, intSpinner3, "null!!", "null!!", null!!, "null!!")
+                    myDatabase.insertDetails(intSpinner4, intSpinner5, intSpinner6, "null!!", "null!!", "null!!", "null!!")
+                }
+            }
+
+            R.id.btn_gen_40nos ->{
+                generate40sRows()
+            }
         }
     }
 
