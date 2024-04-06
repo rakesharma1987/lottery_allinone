@@ -802,7 +802,7 @@ class PowerballActivity : BaseActivity(), View.OnClickListener {
 
 
 
-    fun handlePurchases(purchases: List<Purchase>) {
+    private fun handlePurchases(purchases: List<Purchase>) {
         for (purchase in purchases) {
             if (!purchase.isAcknowledged) {
                 val acknowledgePurchaseParams = AcknowledgePurchaseParams.newBuilder()
@@ -812,7 +812,7 @@ class PowerballActivity : BaseActivity(), View.OnClickListener {
             }
         }
     }
-    var ackPurchase = AcknowledgePurchaseResponseListener { billingResult ->
+    private var ackPurchase = AcknowledgePurchaseResponseListener { billingResult ->
         if (billingResult.responseCode == BillingClient.BillingResponseCode.OK) {
             Preferences.setPurchased(true)
             Toast.makeText(applicationContext, "Item Purchased", Toast.LENGTH_SHORT).show()
