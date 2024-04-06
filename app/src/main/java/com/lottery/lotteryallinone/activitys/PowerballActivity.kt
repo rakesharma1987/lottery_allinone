@@ -719,8 +719,8 @@ class PowerballActivity : BaseActivity(), View.OnClickListener {
                        myDatabase.deleteUserSelectionTable()
 
                        myDatabase.insertIntoUserSelection(6, binding.tv1First5column.text.toString().toInt(), binding.tv1First6column.text.toString().toInt())
-                       myDatabase.insertDetails(binding.tv1.text.toString(), binding.tv2.text.toString(), binding.tv3.text.toString(), binding.tv4.text.toString(), binding.tv5.text.toString(), binding.tv6.text.toString(), null!!)
-                       myDatabase.insertDetails(binding.tv7.text.toString(), binding.tv8.text.toString(), binding.tv9.text.toString(), binding.tv10.text.toString(), binding.tv11.text.toString(), binding.tv12.text.toString(), null!!)
+                       myDatabase.insertDetails(binding.tv1.text.toString(), binding.tv2.text.toString(), binding.tv3.text.toString(), binding.tv4.text.toString(), binding.tv5.text.toString(), binding.tv6.text.toString(), "0")
+                       myDatabase.insertDetails(binding.tv7.text.toString(), binding.tv8.text.toString(), binding.tv9.text.toString(), binding.tv10.text.toString(), binding.tv11.text.toString(), binding.tv12.text.toString(), "0")
                    }
                 }
 
@@ -794,8 +794,8 @@ class PowerballActivity : BaseActivity(), View.OnClickListener {
                 myDatabase.deleteUserSelectionTable()
 
                 myDatabase.insertIntoUserSelection(6, binding.tv1First5column.text.toString().toInt(), binding.tv1First6column.text.toString().toInt())
-                myDatabase.insertDetails(binding.tv1.text.toString(), binding.tv2.text.toString(), binding.tv3.text.toString(), binding.tv4.text.toString(), binding.tv5.text.toString(), binding.tv6.text.toString(), null!!)
-                myDatabase.insertDetails(binding.tv7.text.toString(), binding.tv8.text.toString(), binding.tv9.text.toString(), binding.tv10.text.toString(), binding.tv11.text.toString(), binding.tv12.text.toString(), null!!)
+                myDatabase.insertDetails(binding.tv1.text.toString(), binding.tv2.text.toString(), binding.tv3.text.toString(), binding.tv4.text.toString(), binding.tv5.text.toString(), binding.tv6.text.toString(), "0")
+                myDatabase.insertDetails(binding.tv7.text.toString(), binding.tv8.text.toString(), binding.tv9.text.toString(), binding.tv10.text.toString(), binding.tv11.text.toString(), binding.tv12.text.toString(), "0")
             }
         }
     }

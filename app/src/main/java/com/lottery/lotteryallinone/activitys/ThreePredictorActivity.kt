@@ -14,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.billingclient.api.*
 import com.android.billingclient.api.BillingClient
+import com.bumptech.glide.Glide
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.lottery.lotteryallinone.R
@@ -48,6 +49,7 @@ class ThreePredictorActivity : AppCompatActivity(), View.OnClickListener {
         supportActionBar!!.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.purple_200)))
         window.statusBarColor = ContextCompat.getColor(this, R.color.purple_200)
         myDatabase = MyDatabase(context)
+        Glide.with(this).load(R.drawable.iv_anim).into(binding.ivAnim)
 
 //        if (!GooglePlayBillingPreferences.isPurchasedForThreeNo()){
 //            binding.btnGen40nos.text = "Generate 40 Lines/Rows(Paid Version)"
@@ -284,8 +286,8 @@ class ThreePredictorActivity : AppCompatActivity(), View.OnClickListener {
                     myDatabase.deleteUserSelectionTable()
 
                     myDatabase.insertIntoUserSelection(3, 1, 1)
-                    myDatabase.insertDetails(intSpinner1, intSpinner2, intSpinner3, "null!!", "null!!", null!!, "null!!")
-                    myDatabase.insertDetails(intSpinner4, intSpinner5, intSpinner6, "null!!", "null!!", "null!!", "null!!")
+                    myDatabase.insertDetails(intSpinner1, intSpinner2, intSpinner3, "0", "0", "0", "0")
+                    myDatabase.insertDetails(intSpinner4, intSpinner5, intSpinner6, "0", "0", "0", "0")
                 }
             }
 

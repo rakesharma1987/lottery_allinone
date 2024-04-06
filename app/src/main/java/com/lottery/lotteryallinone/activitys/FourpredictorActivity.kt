@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.billingclient.api.BillingClient
+import com.bumptech.glide.Glide
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.lottery.lotteryallinone.R
@@ -57,6 +58,7 @@ class FourpredictorActivity : AppCompatActivity() {
         context = this
         myDatabase = MyDatabase(context)
         binding.recyclerview4column.layoutManager = LinearLayoutManager(context)
+        Glide.with(this).load(R.drawable.iv_anim).into(binding.ivAnim)
 
 //        val purchasesUpdatedListener =
 //            PurchasesUpdatedListener { billingResult, purchases ->
@@ -244,8 +246,8 @@ class FourpredictorActivity : AppCompatActivity() {
                 myDatabase.deleteUserSelectionTable()
 
                 myDatabase.insertIntoUserSelection(3, 0, 0)
-                myDatabase.insertDetails(intSpinner1, intSpinner2, intSpinner3, intSpinner4, null!!, null!!, null!!)
-                myDatabase.insertDetails(intSpinner5, intSpinner6, intSpinner7, intSpinner8, null!!, null!!, null!!)
+                myDatabase.insertDetails(intSpinner1, intSpinner2, intSpinner3, intSpinner4, "0", "0", "0")
+                myDatabase.insertDetails(intSpinner5, intSpinner6, intSpinner7, intSpinner8, "0", "0", "0")
             }
         })
 
@@ -305,8 +307,8 @@ class FourpredictorActivity : AppCompatActivity() {
             myDatabase.deleteUserSelectionTable()
 
             myDatabase.insertIntoUserSelection(3, 0, 0)
-            myDatabase.insertDetails(intSpinner1, intSpinner2, intSpinner3, intSpinner4, null!!, null!!, null!!)
-            myDatabase.insertDetails(intSpinner5, intSpinner6, intSpinner7, intSpinner8, null!!, null!!, null!!)
+            myDatabase.insertDetails(intSpinner1, intSpinner2, intSpinner3, intSpinner4, "0", "0", "0")
+            myDatabase.insertDetails(intSpinner5, intSpinner6, intSpinner7, intSpinner8, "0", "0", "0")
         }
     }
 
